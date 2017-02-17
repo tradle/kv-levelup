@@ -1,8 +1,10 @@
 
 const memdown = require('memdown')
-const createStore = require('./')
+const createStore = require('../')
 
-require('../tradle-kv/test')({
+const test = require('@tradle/kv/test')
+
+test({
   create: opts => createStore(opts, { db: memdown }),
   cleanup: function ({ path }) {}
 })
