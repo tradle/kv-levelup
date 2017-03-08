@@ -66,6 +66,7 @@ module.exports = function createStore (opts={}) {
   api.list = list
   api.clear = () => blockingOps.push(clear)
   api.destroy = () => blockingOps.push(destroy)
+  api.stream = db.createReadStream.bind(db)
   return api
 
   function createDB (path) {
